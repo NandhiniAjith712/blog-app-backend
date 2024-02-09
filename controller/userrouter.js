@@ -1,16 +1,12 @@
 const express = require("express")
-
 const usermodel = require("../models/usermodel")
-
 const router = express.Router()
-
 const bcrypt = require("bcryptjs")
 
 hashPasswordGenerator = async(pass)=>{
     const salt = await bcrypt.genSalt(10)
     return bcrypt.hash(pass,salt)
 }
-
 
 router.post("/user_entry",async(req,res)=>{
 
@@ -29,7 +25,6 @@ router.post("/user_entry",async(req,res)=>{
         }
     )   
 })
-
 router.get("/viewall",async(req,res)=>{
     let data = await usermodel.find()
     res.json(data)
