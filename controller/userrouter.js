@@ -13,4 +13,9 @@ router.post("/user_entry",async(req,res)=>{
     })
 })
 
+router.get("/viewall",async(req,res)=>{
+    let data = await usermodel.find()
+    res.json(data)
+})
+
 module.exports= router
